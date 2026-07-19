@@ -1,0 +1,417 @@
+import { Course } from "@/lib/types";
+
+export const courses: Course[] = [
+  {
+    slug: "fundamentals-of-pressure-vessels",
+    title: "Fundamentals of Pressure Vessels",
+    category: "Fundamentals",
+    level: "Beginner",
+    format: "Self-paced",
+    durationHours: 8,
+    price: 149,
+    currency: "USD",
+    rating: 4.8,
+    studentsCount: 3120,
+    summary:
+      "A ground-up introduction to pressure vessel design, construction, and terminology for engineers and technicians entering the field.",
+    description:
+      "Start here if you're new to pressure equipment. This course covers vessel types, materials, construction methods, and the core vocabulary you'll need before tackling code-specific training. You'll learn how vessels are classified, how design pressure and temperature drive wall thickness, and how to read a nameplate and a U-1 data report.",
+    outcomes: [
+      "Identify major pressure vessel types and components",
+      "Read and interpret nameplates and manufacturer's data reports",
+      "Understand design pressure, MAWP, and temperature ratings",
+      "Recognize common materials of construction and their limits",
+      "Navigate the vocabulary used across ASME, API, and PED documents",
+    ],
+    curriculum: [
+      {
+        module: "1. What Is a Pressure Vessel?",
+        lessons: ["Definitions and scope", "Common vessel categories", "Where vessels fit in a process unit"],
+      },
+      {
+        module: "2. Design Basics",
+        lessons: ["Design pressure vs. MAWP", "Temperature effects", "Wall thickness fundamentals"],
+      },
+      {
+        module: "3. Materials & Construction",
+        lessons: ["Carbon vs. alloy vs. clad steel", "Welded vs. seamless construction", "Corrosion allowance"],
+      },
+      {
+        module: "4. Documentation",
+        lessons: ["Nameplates", "U-1 / U-1A data reports", "Where records live over an asset's life"],
+      },
+    ],
+    instructorRole: "Lead Instructor — Pressure Vessels",
+    ceCredits: 0.8,
+  },
+  {
+    slug: "boiler-design-operation-essentials",
+    title: "Boiler Design & Operation Essentials",
+    category: "Fundamentals",
+    level: "Beginner",
+    format: "Self-paced",
+    durationHours: 10,
+    price: 179,
+    currency: "USD",
+    rating: 4.7,
+    studentsCount: 1890,
+    summary:
+      "Core principles of fired and unfired steam boilers — construction, controls, and safe operating practices.",
+    description:
+      "Boilers combine pressure containment with combustion hazards, making them one of the highest-risk categories of pressure equipment. This course walks through firetube and watertube designs, feedwater and controls, low-water cutoffs, and the operating practices that keep boiler rooms safe.",
+    outcomes: [
+      "Distinguish firetube from watertube boiler designs",
+      "Explain the role of feedwater treatment and controls",
+      "Describe key safety devices: low-water cutoffs, safety valves, blowdown",
+      "Understand routine operating and logging requirements",
+    ],
+    curriculum: [
+      { module: "1. Boiler Types", lessons: ["Firetube design", "Watertube design", "Selecting the right type"] },
+      { module: "2. Controls & Safety Devices", lessons: ["Low-water cutoffs", "Safety relief valves", "Combustion controls"] },
+      { module: "3. Operations", lessons: ["Startup and shutdown sequences", "Blowdown procedures", "Water treatment basics"] },
+    ],
+    instructorRole: "Lead Instructor — Boilers & Combustion Systems",
+    ceCredits: 1.0,
+  },
+  {
+    slug: "asme-bpvc-viii-1-masterclass",
+    title: "ASME BPVC Section VIII, Division 1 Masterclass",
+    category: "Codes & Standards",
+    level: "Intermediate",
+    format: "Self-paced + Live Q&A",
+    durationHours: 16,
+    price: 349,
+    currency: "USD",
+    rating: 4.9,
+    studentsCount: 2410,
+    summary:
+      "A deep, code-clause-by-clause walkthrough of ASME Section VIII Division 1 for design, fabrication, and inspection professionals.",
+    description:
+      "Section VIII, Division 1 is the backbone code for most pressure vessel design in North America and much of the world. This masterclass moves through the code's structure — Subsections A, B, and C — with worked examples for thickness calculations, joint efficiency, and nozzle reinforcement, plus monthly live Q&A sessions with an instructor.",
+    outcomes: [
+      "Navigate the structure of Section VIII, Division 1",
+      "Perform basic shell and head thickness calculations",
+      "Apply joint efficiency and radiography requirements",
+      "Evaluate nozzle reinforcement per UG-37",
+      "Understand the role of the Authorized Inspector",
+    ],
+    curriculum: [
+      { module: "1. Code Structure & Scope", lessons: ["Subsections A/B/C overview", "Jurisdictional boundaries", "Relationship to ASME B31 piping codes"] },
+      { module: "2. Design Calculations", lessons: ["Shell thickness (UG-27)", "Formed head thickness", "Joint efficiency"] },
+      { module: "3. Openings & Reinforcement", lessons: ["Nozzle reinforcement (UG-37)", "Reinforcing pads", "Ligament efficiency"] },
+      { module: "4. Fabrication & Inspection", lessons: ["Welding requirements", "NDE requirements by joint type", "Hydrostatic and pneumatic testing"] },
+    ],
+    instructorRole: "Lead Instructor — Codes & Standards",
+    ceCredits: 1.6,
+  },
+  {
+    slug: "ped-2014-68-eu-compliance",
+    title: "PED 2014/68/EU Compliance for Pressure Equipment",
+    category: "Codes & Standards",
+    level: "Intermediate",
+    format: "Self-paced",
+    durationHours: 12,
+    price: 299,
+    currency: "USD",
+    rating: 4.6,
+    studentsCount: 1340,
+    summary:
+      "Navigate the EU Pressure Equipment Directive — categorization, conformity assessment routes, and CE marking.",
+    description:
+      "For manufacturers and importers placing pressure equipment on the EU market, PED compliance is mandatory. This course explains the categorization tables (Annex II), the applicable conformity assessment modules, Notified Body involvement, and how PED interacts with harmonized standards like EN 13445.",
+    outcomes: [
+      "Classify equipment into PED categories I–IV",
+      "Select the correct conformity assessment module",
+      "Understand Notified Body roles and CE marking requirements",
+      "Map PED categories to harmonized standards (EN 13445, EN 13480)",
+    ],
+    curriculum: [
+      { module: "1. Scope & Categorization", lessons: ["Fluid groups 1 and 2", "Annex II categorization tables", "Sound Engineering Practice (SEP)"] },
+      { module: "2. Conformity Assessment", lessons: ["Modules A–H1", "Role of the Notified Body", "Technical documentation"] },
+      { module: "3. CE Marking & Post-Market", lessons: ["Declaration of conformity", "Market surveillance", "UKCA differences post-Brexit"] },
+    ],
+    instructorRole: "Lead Instructor — International Compliance",
+    ceCredits: 1.2,
+  },
+  {
+    slug: "api-510-inspector-exam-prep",
+    title: "API 510 Pressure Vessel Inspector Exam Prep",
+    category: "Certification Prep",
+    level: "Advanced",
+    format: "Live cohort",
+    durationHours: 24,
+    price: 599,
+    currency: "USD",
+    rating: 4.9,
+    studentsCount: 2760,
+    summary:
+      "Structured, cohort-based preparation for the API 510 certification exam, including practice questions and calculation drills.",
+    description:
+      "API 510 certifies in-service pressure vessel inspectors. This live cohort course works through the full body of knowledge — API 510, ASME Section VIII, ASME Section V and IX excerpts, and API 572/576/577 — with weekly live sessions, timed practice exams, and calculation drills covering minimum thickness and remaining life.",
+    outcomes: [
+      "Master the API 510 body of knowledge structure",
+      "Calculate remaining life and corrosion rates",
+      "Apply repair and alteration rules from API 510",
+      "Complete timed, exam-style practice sets under supervision",
+    ],
+    curriculum: [
+      { module: "1. Body of Knowledge Orientation", lessons: ["Reference document map", "Exam format and scoring", "Study plan template"] },
+      { module: "2. Inspection Fundamentals", lessons: ["Inspection intervals", "Corrosion rate & remaining life", "Thickness measurement locations"] },
+      { module: "3. Repairs, Alterations & Rerating", lessons: ["Repair vs. alteration", "Rerating procedures", "NBIC cross-references"] },
+      { module: "4. Exam Drills", lessons: ["Weekly timed quizzes", "Calculation workshops", "Full-length mock exam"] },
+    ],
+    instructorRole: "Lead Instructor — Certification Programs",
+    ceCredits: 2.4,
+  },
+  {
+    slug: "api-570-piping-inspector-prep",
+    title: "API 570 Piping Inspector Certification Prep",
+    category: "Certification Prep",
+    level: "Advanced",
+    format: "Live cohort",
+    durationHours: 22,
+    price: 599,
+    currency: "USD",
+    rating: 4.8,
+    studentsCount: 1980,
+    summary:
+      "Exam-focused preparation for API 570 piping inspection certification, covering circuit classification and CML strategy.",
+    description:
+      "API 570 governs in-service inspection, repair, alteration, and rerating of piping systems. This cohort course covers piping class assignment, condition monitoring location (CML) strategy, and the calculations inspectors are expected to perform on exam day.",
+    outcomes: [
+      "Classify piping circuits and assign inspection intervals",
+      "Design a CML strategy for a piping circuit",
+      "Apply API 570 repair and alteration procedures",
+      "Practice retirement thickness and remaining life calculations",
+    ],
+    curriculum: [
+      { module: "1. Piping Systems Overview", lessons: ["Circuit classification", "Class 1/2/3 piping", "Risk-based interval assignment"] },
+      { module: "2. Inspection Planning", lessons: ["CML selection", "Thickness monitoring", "Corrosion monitoring locations"] },
+      { module: "3. Repairs & Rerating", lessons: ["Temporary vs. permanent repairs", "Rerating a piping system", "Documentation requirements"] },
+      { module: "4. Exam Drills", lessons: ["Timed practice sets", "Calculation workshops", "Full-length mock exam"] },
+    ],
+    instructorRole: "Lead Instructor — Certification Programs",
+    ceCredits: 2.2,
+  },
+  {
+    slug: "api-653-tank-inspector-prep",
+    title: "API 653 Aboveground Storage Tank Inspector Prep",
+    category: "Certification Prep",
+    level: "Advanced",
+    format: "Live cohort",
+    durationHours: 20,
+    price: 549,
+    currency: "USD",
+    rating: 4.7,
+    studentsCount: 1120,
+    summary:
+      "Prepare for API 653 certification with focused study on tank bottom evaluation, settlement, and repair criteria.",
+    description:
+      "API 653 covers inspection, repair, alteration, and reconstruction of aboveground storage tanks built to API 650. This course focuses on the areas that trip up first-time candidates: bottom plate evaluation, settlement calculations, and roof/shell inspection intervals.",
+    outcomes: [
+      "Apply API 653 out-of-service inspection intervals",
+      "Evaluate tank bottom minimum thickness requirements",
+      "Interpret shell settlement survey results",
+      "Understand brittle fracture evaluation basics",
+    ],
+    curriculum: [
+      { module: "1. Tank Fundamentals", lessons: ["API 650 vs. API 653 scope", "Tank components", "Foundation types"] },
+      { module: "2. Inspection Intervals", lessons: ["Internal vs. external intervals", "RBI-based interval extension", "Corrosion rate calculations"] },
+      { module: "3. Settlement & Repairs", lessons: ["Settlement survey interpretation", "Bottom repair criteria", "Shell repair criteria"] },
+      { module: "4. Exam Drills", lessons: ["Timed practice sets", "Calculation workshops", "Full-length mock exam"] },
+    ],
+    instructorRole: "Lead Instructor — Certification Programs",
+    ceCredits: 2.0,
+  },
+  {
+    slug: "nde-methods-for-pressure-equipment",
+    title: "Non-Destructive Examination (NDE) Methods for Pressure Equipment",
+    category: "Inspection & NDE",
+    level: "Intermediate",
+    format: "Self-paced",
+    durationHours: 14,
+    price: 279,
+    currency: "USD",
+    rating: 4.8,
+    studentsCount: 2050,
+    summary:
+      "A practical survey of RT, UT, MT, PT, and emerging NDE methods used on vessels, boilers, and piping.",
+    description:
+      "This course explains how each major NDE method works, what defects it's best suited to find, and how method selection interacts with code requirements. Includes an overview of advanced techniques like phased array UT and time-of-flight diffraction.",
+    outcomes: [
+      "Compare radiographic, ultrasonic, magnetic particle, and dye penetrant testing",
+      "Match NDE method to defect type and material",
+      "Understand acceptance criteria basics under ASME Section V",
+      "Get oriented on phased array UT and TOFD",
+    ],
+    curriculum: [
+      { module: "1. Surface Methods", lessons: ["Magnetic particle testing", "Liquid penetrant testing", "When to use each"] },
+      { module: "2. Volumetric Methods", lessons: ["Radiographic testing basics", "Ultrasonic testing basics", "Film vs. digital radiography"] },
+      { module: "3. Advanced Techniques", lessons: ["Phased array UT", "Time-of-flight diffraction", "Automated scanning systems"] },
+      { module: "4. Standards & Acceptance", lessons: ["ASME Section V overview", "Acceptance criteria basics", "Personnel qualification (SNT-TC-1A)"] },
+    ],
+    instructorRole: "Lead Instructor — Inspection & NDE",
+    ceCredits: 1.4,
+  },
+  {
+    slug: "risk-based-inspection-fundamentals",
+    title: "Risk-Based Inspection (RBI) Fundamentals",
+    category: "Mechanical Integrity",
+    level: "Intermediate",
+    format: "Self-paced",
+    durationHours: 10,
+    price: 249,
+    currency: "USD",
+    rating: 4.7,
+    studentsCount: 1560,
+    summary:
+      "Learn how RBI programs prioritize inspection resources using probability and consequence of failure, per API 580/581.",
+    description:
+      "Risk-based inspection lets facilities focus inspection effort where it matters most. This course introduces the API 580/581 framework, damage mechanism identification, and how RBI outputs feed into inspection planning and interval-setting.",
+    outcomes: [
+      "Explain probability of failure (POF) and consequence of failure (COF)",
+      "Identify common damage mechanisms by equipment and service",
+      "Understand how RBI drives inspection interval decisions",
+      "Recognize the difference between qualitative and quantitative RBI",
+    ],
+    curriculum: [
+      { module: "1. RBI Framework", lessons: ["API 580 overview", "Qualitative vs. quantitative approaches", "Risk matrices"] },
+      { module: "2. Damage Mechanisms", lessons: ["Common mechanisms by service", "Susceptibility screening", "Linking mechanisms to inspection methods"] },
+      { module: "3. From Risk to Plan", lessons: ["Setting inspection intervals", "Updating RBI with new data", "Program governance"] },
+    ],
+    instructorRole: "Lead Instructor — Mechanical Integrity",
+    ceCredits: 1.0,
+  },
+  {
+    slug: "pressure-relief-valve-sizing-selection",
+    title: "Pressure Relief Valve Sizing & Selection",
+    category: "Safety & Relief Systems",
+    level: "Intermediate",
+    format: "Self-paced",
+    durationHours: 9,
+    price: 229,
+    currency: "USD",
+    rating: 4.8,
+    studentsCount: 1470,
+    summary:
+      "Overpressure scenarios, relief device selection, and sizing calculations per API 520/521.",
+    description:
+      "Overpressure protection is one of the highest-consequence design areas in pressure equipment. This course walks through identifying overpressure scenarios, choosing between relief valves and rupture discs, and performing basic sizing calculations aligned with API 520 and API 521.",
+    outcomes: [
+      "Identify credible overpressure scenarios for a process unit",
+      "Choose between spring-loaded, pilot-operated, and rupture disc devices",
+      "Perform basic relief valve sizing calculations",
+      "Understand set pressure, blowdown, and accumulation",
+    ],
+    curriculum: [
+      { module: "1. Overpressure Scenarios", lessons: ["Fire case", "Blocked outlet", "Control valve failure"] },
+      { module: "2. Device Selection", lessons: ["Spring-loaded relief valves", "Pilot-operated relief valves", "Rupture discs"] },
+      { module: "3. Sizing Basics", lessons: ["Vapor/gas sizing", "Liquid sizing", "Two-phase considerations"] },
+    ],
+    instructorRole: "Lead Instructor — Safety & Relief Systems",
+    ceCredits: 0.9,
+  },
+  {
+    slug: "welding-procedures-asme-ix",
+    title: "Welding Procedures for Pressure Equipment (ASME IX)",
+    category: "Welding & Fabrication",
+    level: "Intermediate",
+    format: "Self-paced",
+    durationHours: 12,
+    price: 259,
+    currency: "USD",
+    rating: 4.6,
+    studentsCount: 1010,
+    summary:
+      "How WPS, PQR, and WPQ documentation works together to qualify welding on pressure retaining components.",
+    description:
+      "Every weld on a pressure vessel or piping system traces back to a qualified procedure and a qualified welder. This course explains the relationship between the Welding Procedure Specification, Procedure Qualification Record, and Welder Performance Qualification under ASME Section IX.",
+    outcomes: [
+      "Explain the relationship between WPS, PQR, and WPQ",
+      "Identify essential, nonessential, and supplementary essential variables",
+      "Understand qualification ranges for thickness and position",
+      "Recognize common documentation errors during audits",
+    ],
+    curriculum: [
+      { module: "1. The Qualification Triangle", lessons: ["WPS overview", "PQR overview", "WPQ overview"] },
+      { module: "2. Variables", lessons: ["Essential variables", "Supplementary essential variables", "Nonessential variables"] },
+      { module: "3. Audits & Documentation", lessons: ["Common findings", "Recordkeeping practices", "Cross-referencing to ASME VIII"] },
+    ],
+    instructorRole: "Lead Instructor — Welding & Fabrication",
+    ceCredits: 1.2,
+  },
+  {
+    slug: "mechanical-integrity-program-management",
+    title: "Mechanical Integrity Program Management",
+    category: "Mechanical Integrity",
+    level: "Advanced",
+    format: "Self-paced + Live Q&A",
+    durationHours: 15,
+    price: 329,
+    currency: "USD",
+    rating: 4.9,
+    studentsCount: 980,
+    summary:
+      "Build and run a facility-wide mechanical integrity program spanning vessels, piping, tanks, and relief systems.",
+    description:
+      "Designed for engineers and asset integrity leads, this course covers how to structure a mechanical integrity program that satisfies both regulatory requirements (like OSHA PSM) and internal risk goals — including equipment strategies, KPI tracking, and audit readiness.",
+    outcomes: [
+      "Structure an MI program across equipment classes",
+      "Define KPIs for program health (overdue %, backlog aging)",
+      "Align MI programs with OSHA PSM / PSM-equivalent regulations",
+      "Prepare for internal and third-party MI audits",
+    ],
+    curriculum: [
+      { module: "1. Program Structure", lessons: ["Equipment strategies", "Roles and responsibilities", "Software and data systems"] },
+      { module: "2. Metrics & Governance", lessons: ["Overdue inspection tracking", "Backlog aging", "Management of change (MOC) links"] },
+      { module: "3. Audit Readiness", lessons: ["Common audit findings", "Building an evidence trail", "Continuous improvement loops"] },
+    ],
+    instructorRole: "Lead Instructor — Mechanical Integrity",
+    ceCredits: 1.5,
+  },
+  {
+    slug: "piping-systems-design-b31-3",
+    title: "Piping Systems Design (ASME B31.3)",
+    category: "Codes & Standards",
+    level: "Intermediate",
+    format: "Self-paced",
+    durationHours: 13,
+    price: 289,
+    currency: "USD",
+    rating: 4.7,
+    studentsCount: 1330,
+    summary:
+      "Process piping design fundamentals under ASME B31.3, from wall thickness to flexibility analysis basics.",
+    description:
+      "ASME B31.3 governs process piping across refining, chemical, and pharmaceutical industries. This course covers pressure design of straight pipe, branch connections, flange ratings, and an introduction to flexibility and stress analysis concepts.",
+    outcomes: [
+      "Calculate required wall thickness for straight pipe",
+      "Apply branch reinforcement rules",
+      "Select flange ratings and understand pressure-temperature tables",
+      "Get oriented on flexibility and thermal stress basics",
+    ],
+    curriculum: [
+      { module: "1. Pressure Design", lessons: ["Straight pipe thickness", "Allowances and tolerances", "Material stress values"] },
+      { module: "2. Branch Connections", lessons: ["Reinforcement requirements", "Fitting selection", "Welded vs. flanged branches"] },
+      { module: "3. Flexibility Basics", lessons: ["Thermal expansion", "Introduction to stress analysis", "When formal analysis is required"] },
+    ],
+    instructorRole: "Lead Instructor — Codes & Standards",
+    ceCredits: 1.3,
+  },
+];
+
+export function getCourseBySlug(slug: string): Course | undefined {
+  return courses.find((c) => c.slug === slug);
+}
+
+export const categories: Course["category"][] = [
+  "Fundamentals",
+  "Codes & Standards",
+  "Inspection & NDE",
+  "Mechanical Integrity",
+  "Safety & Relief Systems",
+  "Welding & Fabrication",
+  "Certification Prep",
+];
+
+export const levels: Course["level"][] = ["Beginner", "Intermediate", "Advanced"];
