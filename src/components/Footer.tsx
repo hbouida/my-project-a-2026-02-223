@@ -13,6 +13,8 @@ const columns = [
     title: "Platform",
     links: [
       { href: "/equipment-manager", label: "Equipment Manager" },
+      { href: "/dashboard", label: "My Dashboard" },
+      { href: "/resources", label: "Resources" },
       { href: "/pricing", label: "Team & Enterprise" },
     ],
   },

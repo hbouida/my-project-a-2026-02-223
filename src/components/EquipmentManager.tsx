@@ -164,6 +164,38 @@ export default function EquipmentManager() {
     URL.revokeObjectURL(url);
   }
 
+  function downloadIcs(eq: Equipment) {
+    const due = computeNextDueDate(eq.lastInspectionDate, eq.inspectionIntervalMonths);
+    const dueDateStr = due.toISOString().slice(0, 10).replace(/-/g, "");
+    const stamp = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    const ics = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//PEQ Academy//Equipment Manager//EN",
+      "BEGIN:VEVENT",
+      `UID:${eq.id}@peqacademy`,
+      `DTSTAMP:${stamp}`,
+      `DTSTART;VALUE=DATE:${dueDateStr}`,
+      `DTEND;VALUE=DATE:${dueDateStr}`,
+      `SUMMARY:Inspection due — ${eq.tag} (${eq.type})`,
+      `DESCRIPTION:Applicable code: ${eq.applicableCode}. Site: ${eq.site}, ${eq.country}.`,
+      "BEGIN:VALARM",
+      "TRIGGER:-P30D",
+      "ACTION:DISPLAY",
+      `DESCRIPTION:Inspection due in 30 days — ${eq.tag}`,
+      "END:VALARM",
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+    const blob = new Blob([ics], { type: "text/calendar;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${eq.tag.replace(/\s+/g, "-")}-inspection-reminder.ics`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   return (
     <div>
       {/* Dashboard */}
@@ -259,7 +291,10 @@ export default function EquipmentManager() {
                   </span>
                 </td>
                 <td className="px-4 py-3 text-right">
-                  <button onClick={() => openEditForm(eq)} className="text-sm text-slate-400 hover:text-white">
+                  <button onClick={() => downloadIcs(eq)} className="text-sm text-slate-400 hover:text-white">
+                    Add to calendar
+                  </button>
+                  <button onClick={() => openEditForm(eq)} className="ml-4 text-sm text-slate-400 hover:text-white">
                     Edit
                   </button>
                   <button

@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useAuth } from "@/components/AuthProvider";
 
 const navLinks = [
   { href: "/courses", label: "Courses" },
   { href: "/equipment-manager", label: "Equipment Manager" },
+  { href: "/resources", label: "Resources" },
   { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
@@ -13,6 +15,7 @@ const navLinks = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const { user, loaded, signOut } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur supports-[backdrop-filter]:bg-slate-950/80">
@@ -26,7 +29,7 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-7 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -39,18 +42,37 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <Link
-            href="/contact"
-            className="text-sm font-medium text-slate-300 transition hover:text-white"
-          >
-            Sign in
-          </Link>
-          <Link
-            href="/courses"
-            className="rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
-          >
-            Enroll Now
-          </Link>
+          {loaded && user ? (
+            <>
+              <Link
+                href="/dashboard"
+                className="text-sm font-medium text-slate-300 transition hover:text-white"
+              >
+                {user.name.split(" ")[0]}&apos;s Dashboard
+              </Link>
+              <button
+                onClick={signOut}
+                className="rounded-md border border-slate-700 px-4 py-2 text-sm font-semibold text-white transition hover:border-slate-500"
+              >
+                Sign out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/account"
+                className="text-sm font-medium text-slate-300 transition hover:text-white"
+              >
+                Sign in
+              </Link>
+              <Link
+                href="/courses"
+                className="rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
+              >
+                Enroll Now
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -83,13 +105,34 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/courses"
-              onClick={() => setOpen(false)}
-              className="mt-2 rounded-md bg-amber-500 px-4 py-2 text-center text-sm font-semibold text-slate-950"
-            >
-              Enroll Now
-            </Link>
+            {loaded && user ? (
+              <>
+                <Link
+                  href="/dashboard"
+                  onClick={() => setOpen(false)}
+                  className="rounded-md px-2 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
+                >
+                  Dashboard
+                </Link>
+                <button
+                  onClick={() => {
+                    signOut();
+                    setOpen(false);
+                  }}
+                  className="mt-2 rounded-md border border-slate-700 px-4 py-2 text-center text-sm font-semibold text-white"
+                >
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <Link
+                href="/courses"
+                onClick={() => setOpen(false)}
+                className="mt-2 rounded-md bg-amber-500 px-4 py-2 text-center text-sm font-semibold text-slate-950"
+              >
+                Enroll Now
+              </Link>
+            )}
           </nav>
         </div>
       )}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import CourseCard from "@/components/CourseCard";
 import { courses } from "@/data/courses";
+import { articles } from "@/data/articles";
 
 const stats = [
   { value: "60+", label: "Countries reached" },
@@ -268,6 +269,36 @@ export default function Home() {
               </figcaption>
             </figure>
           ))}
+        </div>
+      </section>
+
+      {/* From the blog */}
+      <section className="border-t border-slate-800 bg-slate-900/40">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <h2 className="text-3xl font-bold text-white">From the blog</h2>
+              <p className="mt-2 text-slate-400">Practical reads on pressure equipment, free to everyone.</p>
+            </div>
+            <Link href="/resources" className="text-sm font-semibold text-amber-400 hover:underline">
+              View all resources &rarr;
+            </Link>
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {articles.slice(0, 3).map((article) => (
+              <Link
+                key={article.slug}
+                href={`/resources/${article.slug}`}
+                className="rounded-xl border border-slate-800 bg-slate-900/60 p-6 transition hover:border-amber-500/50"
+              >
+                <span className="rounded-full bg-slate-800 px-2.5 py-1 text-xs font-medium text-slate-300">
+                  {article.category}
+                </span>
+                <h3 className="mt-3 font-semibold text-white">{article.title}</h3>
+                <p className="mt-2 line-clamp-2 text-sm text-slate-400">{article.excerpt}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

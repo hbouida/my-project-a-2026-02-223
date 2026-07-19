@@ -1,3 +1,4 @@
+import { statusFromDueDate } from "@/lib/complianceStatus";
 import { ApplicableCode, ComplianceStatus, Equipment, EquipmentType } from "@/lib/types";
 
 export const equipmentTypes: EquipmentType[] = [
@@ -81,10 +82,5 @@ export function computeNextDueDate(lastInspectionDate: string, intervalMonths: n
 }
 
 export function computeStatus(lastInspectionDate: string, intervalMonths: number): ComplianceStatus {
-  const due = computeNextDueDate(lastInspectionDate, intervalMonths);
-  const today = new Date();
-  const daysUntilDue = Math.floor((due.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
-  if (daysUntilDue < 0) return "Overdue";
-  if (daysUntilDue <= 90) return "Due Soon";
-  return "Compliant";
+  return statusFromDueDate(computeNextDueDate(lastInspectionDate, intervalMonths));
 }

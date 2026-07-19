@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { courses, getCourseBySlug } from "@/data/courses";
 import CourseCard from "@/components/CourseCard";
+import CourseEnrollSidebar from "@/components/CourseEnrollSidebar";
+import CourseCurriculumList from "@/components/CourseCurriculumList";
+import { CourseEnrollmentProvider } from "@/components/CourseEnrollmentContext";
 
 export function generateStaticParams() {
   return courses.map((c) => ({ slug: c.slug }));
@@ -43,6 +46,7 @@ export default async function CourseDetailPage({
         <span className="text-slate-400">{course.category}</span>
       </nav>
 
+      <CourseEnrollmentProvider course={course}>
       <div className="mt-6 grid grid-cols-1 gap-12 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <div className="flex flex-wrap items-center gap-2">
@@ -84,21 +88,7 @@ export default async function CourseDetailPage({
 
           <div className="mt-10">
             <h2 className="text-xl font-semibold text-white">Curriculum</h2>
-            <div className="mt-4 space-y-3">
-              {course.curriculum.map((mod) => (
-                <div key={mod.module} className="rounded-lg border border-slate-800 bg-slate-900/60 p-4">
-                  <h3 className="font-medium text-white">{mod.module}</h3>
-                  <ul className="mt-2 space-y-1.5">
-                    {mod.lessons.map((lesson) => (
-                      <li key={lesson} className="flex items-center gap-2 text-sm text-slate-400">
-                        <span className="h-1 w-1 flex-none rounded-full bg-slate-600" />
-                        {lesson}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <CourseCurriculumList course={course} />
           </div>
 
           <div className="mt-10 rounded-lg border border-slate-800 bg-slate-900/60 p-5">
@@ -113,45 +103,10 @@ export default async function CourseDetailPage({
 
         {/* Sidebar */}
         <div className="lg:col-span-1">
-          <div className="sticky top-24 rounded-xl border border-slate-800 bg-slate-900/60 p-6">
-            <div className="text-3xl font-bold text-white">${course.price}</div>
-            <p className="text-xs text-slate-500">USD, one-time</p>
-
-            <Link
-              href="/contact"
-              className="mt-6 block w-full rounded-md bg-amber-500 px-4 py-3 text-center text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
-            >
-              Enroll Now
-            </Link>
-
-            <dl className="mt-6 space-y-3 border-t border-slate-800 pt-6 text-sm">
-              <div className="flex justify-between">
-                <dt className="text-slate-500">Format</dt>
-                <dd className="text-slate-300">{course.format}</dd>
-              </div>
-              <div className="flex justify-between">
-                <dt className="text-slate-500">Duration</dt>
-                <dd className="text-slate-300">{course.durationHours} hours</dd>
-              </div>
-              <div className="flex justify-between">
-                <dt className="text-slate-500">Level</dt>
-                <dd className="text-slate-300">{course.level}</dd>
-              </div>
-              <div className="flex justify-between">
-                <dt className="text-slate-500">CE credits</dt>
-                <dd className="text-slate-300">{course.ceCredits}</dd>
-              </div>
-            </dl>
-
-            <ul className="mt-6 space-y-2 border-t border-slate-800 pt-6 text-sm text-slate-400">
-              <li>Certificate of completion</li>
-              <li>Lifetime access to course materials</li>
-              <li>Downloadable reference sheets</li>
-              <li>Access to the Equipment Manager tool</li>
-            </ul>
-          </div>
+          <CourseEnrollSidebar course={course} />
         </div>
       </div>
+      </CourseEnrollmentProvider>
 
       {related.length > 0 && (
         <div className="mt-20">
